@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>book list</title>
+</head>
+<body>
+<h1>Book List</h1>
+<ul>
+  {% for book in books %}
+    <li>{{ book.title }} by {{ book.author }} {% if not book.available %}(Issued){% endif %}</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'home' %}">Back to Home</a>
+
+</body>
+</html>

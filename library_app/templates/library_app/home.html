@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home </title>
+</head>
+<body>
+<h1>Welcome to the Library</h1><h1> Welcome,{{request.user.username}}!</h1>
+
+{% if messages%}
+<ul id="messages-c" %>
+    {% for message in messages %}
+    <li class="alert {{message.tags}}">{{message}}</li>
+    {% endfor %}
+</ul>
+{%endif%}
+<a href="{% url 'book_list' %}">View Books</a>
+<a href="{% url 'user_logout'%}">Logout</a>
+
+<script>
+    setTimeout(function(){
+    var messages =document.getElementById('messages-c');
+    if(messages){
+        messages.style.display='none';
+    }
+    },3000);
+</script>
+</body>
+</html>
